@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page with Background and Overlay</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url('bglogo.png') no-repeat center center/cover;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            overflow: hidden;
+        }
+        .container {
+            position: relative;
+            width: 960px;
+            height: 540px;
+            background: #F0F0F0;
+            overflow: hidden;
+        }
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('playground.jpg') no-repeat center center/cover;
+            z-index: 1;
+        }
+        .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 100%;
+            background: url('boy3.png') no-repeat center center/contain;
+            background-size: 105%;
+            z-index: 2;
+            animation: moveDown 1s ease-out forwards;
+        }
+        @keyframes moveDown {
+            0% {
+                bottom: 0;
+            }
+            100% {
+                bottom: -100%;
+            }
+        }
+        /* Button Style */
+        .home-button {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            border: none;
+            background: none;
+            padding: 0;
+            cursor: pointer;
+            z-index: 4;
+        }
+        .home-button img {
+            width: 80px;
+            height: 80px;
+        }
+        .chatbox-container {
+            position: absolute;
+            bottom: 20px;
+            left: 50px;
+            width: 350px;
+            z-index: 3;
+        }
+        .chatbox {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="background"></div>
+        <div class="overlay"></div>
+        <div class="chatbox-container">
+            <img src="chatbox6.png" alt="Chatbox" class="chatbox">
+        </div>
+        <!-- Home Button -->
+        <button class="home-button" onclick="fadeAndNavigate()">
+            <img src="homeb.png" alt="Home Button">
+        </button>
+    </div>
+
+    <script>
+        function fadeAndNavigate() {
+            document.body.style.transition = 'opacity 1s ease-out';
+            document.body.style.opacity = '0';
+            setTimeout(function() {
+                window.location.href = 'start.html';
+            }, 1000);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <title>Your title here</title>
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #F0F0F0;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            overflow: hidden;
+            background-image: url('bglogo.png'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Container with fixed size */
+        #container {
+            position: relative;
+            width: 960px;
+            height: 540px;
+            background-image: url('back2.png'); /* Background image */
+            background-size: cover; /* Ensures the image fills the container */
+            background-position: center; /* Centers the image */
+            background-repeat: no-repeat; /* Avoid repeating the image */
+            background-color: #CCCCCC; /* Fallback background color */
+            z-index: 2;
+        }
+
+        /* Adjust overlay size to 16:9 aspect ratio */
+        #overlay {
+            background: url('overlay.png') no-repeat center center;
+            background-size: contain;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        /* Adjusted Text Box with more space on the sides and top */
+        #textBox {
+            position: absolute;
+            top: 120px; /* Extra space at the top for the header */
+            left: 80px; /* Lean text to the left */
+            right: 70px; /* Space on the right side */
+            bottom: 100px; /* Space at the bottom */
+            transform: translateY(0); /* No need for vertical centering now */
+            color: #025476; /* Dark blue text color */
+            font-size: 25px;
+            font-weight: bold;
+            font-family: "Courier New", Courier, monospace; /* Techy font */
+            z-index: 3;
+            white-space: normal; /* Allow text to wrap */
+            word-wrap: break-word; /* Break words to fit in the box */
+            padding: 10px;
+            box-sizing: border-box; /* Include padding in the width/height */
+        }
+
+        /* Button Style */
+        button {
+            position: relative;
+            bottom: -150px;
+            right: 170px;
+            border: none;
+            background: none;
+            padding: 0;
+            cursor: pointer;
+            z-index: 4;
+        }
+
+        button img {
+            width: 80px;
+            height: 80px;
+        }
+        .baby-container {
+            position: absolute;
+            bottom: 10px;
+            left: 200px;
+            width: 400px;
+            z-index: 3;
+        }
+
+        .baby {
+            width: 100%;
+            height: auto;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="overlay"></div> <!-- Overlay with PNG image -->
+    <div id="container">
+        <div class="baby-container">
+            <img src="baby.png" alt="baby" class="baby">
+        </div>
+        <!-- The container now has the image as the background -->
+        
+        <!-- Adjusted Text Box with Lorem Ipsum text -->
+        <div id="textBox">
+            AI systems are taught and trained using computer programming that learns and adapts. AI learns from lots of data using machine learning, deep learning and large language models (LLM) to identify patterns, relationships within the data and understand human language. So its something like the way a child learns and gets smarter. 
+        </div>
+    </div>
+
+    <!-- Square Button -->
+    <button onclick="fadeAndNavigate()">
+        <img src="nextb.png" alt="Go to Another Page">
+    </button>
+    
+    <script>
+        // Function to fade the body and navigate to another page
+        function fadeAndNavigate() {
+            document.body.style.transition = 'opacity 1s ease-out';
+            document.body.style.opacity = '0';
+            
+            setTimeout(function() {
+                window.location.href = 'eighth.html'; // Navigate to another page
+            }, 500); // Wait for the fade effect to complete before redirecting
+        }
+    </script>
+    
+</body>
+</html>

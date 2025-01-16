@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page with Background and Overlay</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: url('bglogo.png') no-repeat center center/cover;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            overflow: hidden;
+        }
+
+        .container {
+            position: relative;
+            width: 960px;
+            height: 540px;
+            background: #F0F0F0;
+            overflow: hidden;
+        }
+
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('playground.jpg') no-repeat center center/cover;
+            z-index: 1;
+        }
+
+        .overlay {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 100%;
+            background: url('boy4.png') no-repeat center center/contain;
+            background-size: 105%;
+            z-index: 2;
+        }
+
+        .chatbox-container {
+            position: absolute;
+            bottom: 20px;
+            left: 50px;
+            width: 350px;
+            z-index: 100; /* Ensuring the chatbox has the highest z-index */
+            cursor: pointer;
+        }
+
+        .chatbox {
+            width: 100%;
+            height: auto;
+        }
+
+        .alert {
+            position: absolute;
+            top: -10px;
+            left: 0%;
+            width: 100%;
+            height: auto;
+            z-index: 4;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="background"></div>
+        <div class="overlay"></div>
+        <div class="chatbox-container" onclick="navigate()">
+            <img src="chatbox5.png" alt="Chatbox" class="chatbox">
+        </div>
+        <img src="wrong.png" alt="Alert" class="alert">
+    </div>
+
+   <!-- Audio element -->
+    <audio id="laughSound" src="laughing.mp3" autoplay></audio>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const laughSound = document.getElementById('laughSound');
+            laughSound.volume = 0.5; // Set volume to half
+            laughSound.play().catch((error) => {
+                console.error('Audio playback failed:', error);
+            });
+        });
+
+        // Function to navigate to the next page
+        function navigate() {
+            window.location.href = 'sixth.html'; // Navigate to the sixth.html
+        }
+    </script>
+</body>
+</html>
